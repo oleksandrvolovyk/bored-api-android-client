@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name" translatable="false">Bored</string>
+    <string name="button_caption" translatable="false">BORED</string>
+    <string name="task_caption">Your task:</string>
+    <string name="availability_caption">Availability:</string>
+    <string name="type_caption">Type: %1$s</string>
+    <string name="error">Something went wrong!</string>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="task_caption">Ваше завдання:</string>
+    <string name="availability_caption">Доступність:</string>
+    <string name="type_caption">Тип: %1$s</string>
+    <string name="error">Щось пішло не так!</string>
+</resources>
