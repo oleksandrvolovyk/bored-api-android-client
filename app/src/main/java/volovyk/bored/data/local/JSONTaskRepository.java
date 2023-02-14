@@ -1,5 +1,7 @@
-package volovyk.bored;
+package volovyk.bored.data.local;
 
+
+import android.content.res.Resources;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -10,12 +12,21 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Random;
 
-public class JSONTaskDatabase implements TaskDatabase {
+import volovyk.bored.MyApplication;
+import volovyk.bored.R;
+import volovyk.bored.data.Task;
+import volovyk.bored.data.TaskRepository;
+
+public class JSONTaskRepository implements TaskRepository {
 
     List<Task> tasks;
 
-    public JSONTaskDatabase(InputStream rawResource) throws IOException {
-        this.tasks = loadJSONFromAsset(rawResource);
+    public JSONTaskRepository() {
+        try {
+            this.tasks = loadJSONFromAsset(MyApplication.getMyInputStream());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private List<Task> loadJSONFromAsset(InputStream rawResource) throws IOException {

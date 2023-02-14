@@ -1,9 +1,9 @@
-package volovyk.bored;
+package volovyk.bored.data;
 
 public class Task {
-    private String name;
-    private String type;
-    private int availability;
+    private final String name;
+    private final String type;
+    private final int availability;
 
     public Task(String name, String type, int availability) {
         this.name = name;
