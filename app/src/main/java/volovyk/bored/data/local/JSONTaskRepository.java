@@ -1,7 +1,7 @@
 package volovyk.bored.data.local;
 
 
-import android.content.res.Resources;
+import android.content.Context;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -12,18 +12,23 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Random;
 
-import volovyk.bored.MyApplication;
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
+import dagger.hilt.android.qualifiers.ApplicationContext;
 import volovyk.bored.R;
 import volovyk.bored.data.Task;
 import volovyk.bored.data.TaskRepository;
 
+@Singleton
 public class JSONTaskRepository implements TaskRepository {
 
     List<Task> tasks;
 
-    public JSONTaskRepository() {
+    @Inject
+    public JSONTaskRepository(@ApplicationContext Context appContext) {
         try {
-            this.tasks = loadJSONFromAsset(MyApplication.getAppResources().openRawResource(R.raw.activities));
+            this.tasks = loadJSONFromAsset(appContext.getResources().openRawResource(R.raw.activities));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

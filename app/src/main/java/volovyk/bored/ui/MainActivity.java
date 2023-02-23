@@ -5,14 +5,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import dagger.hilt.android.AndroidEntryPoint;
 import volovyk.bored.R;
 import volovyk.bored.data.Task;
 
+@AndroidEntryPoint
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private MainViewModel mainViewModel;
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         activityTypeTextView = findViewById(R.id.activityTypeTextView);
         availabilityProgressBar = findViewById(R.id.availabilityProgressBar);
 
-        mainViewModel = new ViewModelProvider(this).get(MainViewModel.class); // TODO: DI
+        mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
 
         mainViewModel.task.observe(this, this::displayTask);
 
