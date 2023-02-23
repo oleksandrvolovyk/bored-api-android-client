@@ -38,10 +38,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         refreshButton.setOnClickListener(this);
     }
 
-    private void makeToast(String s) {
-        Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
-    }
-
     @Override
     public void onClick(View v) {
         mainViewModel.onRefreshButtonClick();

@@ -23,7 +23,7 @@ public class JSONTaskRepository implements TaskRepository {
 
     public JSONTaskRepository() {
         try {
-            this.tasks = loadJSONFromAsset(MyApplication.getMyInputStream());
+            this.tasks = loadJSONFromAsset(MyApplication.getAppResources().openRawResource(R.raw.activities));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

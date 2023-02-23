@@ -1,20 +1,19 @@
 package volovyk.bored;
 
 import android.app.Application;
-
-import java.io.InputStream;
+import android.content.res.Resources;
 
 public class MyApplication extends Application {
 
-    private static InputStream activitiesInputStream;
+    private static Resources resources;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        activitiesInputStream = getApplicationContext().getResources().openRawResource(R.raw.activities);
+        resources = getApplicationContext().getResources();
     }
 
-    public static InputStream getMyInputStream(){
-        return activitiesInputStream;
+    public static Resources getAppResources(){
+        return resources;
     }
 }
