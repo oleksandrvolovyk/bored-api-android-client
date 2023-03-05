@@ -18,15 +18,14 @@ import javax.inject.Singleton;
 import dagger.hilt.android.qualifiers.ApplicationContext;
 import volovyk.bored.R;
 import volovyk.bored.data.Task;
-import volovyk.bored.data.TaskRepository;
 
 @Singleton
-public class JSONTaskRepository implements TaskRepository {
+public class JSONTaskDatabase {
 
     List<Task> tasks;
 
     @Inject
-    public JSONTaskRepository(@ApplicationContext Context appContext) {
+    public JSONTaskDatabase(@ApplicationContext Context appContext) {
         try {
             this.tasks = loadJSONFromAsset(appContext.getResources().openRawResource(R.raw.activities));
         } catch (IOException e) {
@@ -51,11 +50,10 @@ public class JSONTaskRepository implements TaskRepository {
         }.getType());
     }
 
-
-    @Override
     public Task getRandomTask() {
         final Random random = new Random();
         return tasks.get(random.nextInt(tasks.size()));
     }
 
 }
+
